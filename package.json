@@ -2,7 +2,7 @@
   "name": "omni-typescript-library",
   "version": "1.0.0",
   "description": "基于typescript的库文件",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=local node ./scripts/development.js",
     "build": "cross-env NODE_ENV=prod node ./scripts/build.js"

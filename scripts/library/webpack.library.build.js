@@ -2,7 +2,7 @@ const path = require("path");
 const { merge } = require("webpack-merge");
 const nodeExternals = require("webpack-node-externals");
 
-const basic_server_config = require("../server/webpack.library.basic");
+const basic_server_config = require("./webpack.library.basic");
 
 module.exports = merge(basic_server_config, {
   mode: "production",
