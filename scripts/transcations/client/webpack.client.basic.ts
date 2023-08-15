@@ -1,22 +1,21 @@
-const path = require("path");
-const WebpackBar = require("webpackbar");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const WebpackAssetsManifest = require("webpack-assets-manifest");
-const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+import path from "path";
+import WebpackBar from "webpackbar";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import WebpackAssetsManifest from "webpack-assets-manifest";
+import NodePolyfillPlugin from "node-polyfill-webpack-plugin";
 
-const { name } = require("../../package.json");
-const file_loader = require("../configs/file_loader");
-const program_loader = require("../configs/program_loader");
-const use_public_style_loader_list = require("../configs/use_public_style_loader_list");
+import { file_loader } from "../../configs/file_loader";
+import { program_loader } from "../../configs/program_loader";
+import { use_public_style_loader_list } from "../../configs/use_public_style_loader_list";
 
-module.exports = {
+export const basic_client_config = {
   cache: {
     type: "filesystem",
     memoryCacheUnaffected: true,
     allowCollectingMemory: true,
   },
   devtool: "source-map",
-  entry: path.resolve(process.cwd(), "./example/index.tsx"),
+  entry: path.resolve(process.cwd(), "./example/applications/index.tsx"),
   resolve: {
     extensions: [".js", ".json", ".ts", ".tsx"],
     alias: {
@@ -33,6 +32,7 @@ module.exports = {
       test: /\.(scss|sass)$/,
       use: use_public_style_loader_list.concat([{
         loader: "sass-loader",
+        //@ts-ignore
         options: {}
       }])
     }, {
@@ -40,6 +40,7 @@ module.exports = {
       use: use_public_style_loader_list.concat([{
         loader: "less-loader",
         options: {
+          //@ts-ignore
           lessOptions: {
             javascriptEnabled: true,
           },
@@ -47,15 +48,16 @@ module.exports = {
           sourceMap: true
         }
       }])
+      //@ts-ignore
     }].concat(program_loader).concat(file_loader)
   },
   plugins: [
-    new WebpackBar({ name: "example" }),
+    new WebpackBar({ name: "编译客户端", }),
     new NodePolyfillPlugin(),
     new WebpackAssetsManifest(),
     new HtmlWebpackPlugin({
       publicPath: "/",
-      template: path.resolve(process.cwd(), "./example/index.html")
+      template: path.resolve(process.cwd(), "./example/applications/index.html")
     })
   ]
 };

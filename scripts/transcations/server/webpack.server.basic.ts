@@ -1,9 +1,9 @@
-const path = require("path");
-const WebpackBar = require("webpackbar");
+import path from "path";
+import WebpackBar from "webpackbar";
 
-const program_loader = require("../configs/program_loader");
+import { program_loader } from "../../configs/program_loader";
 
-module.exports = {
+export const basic_server_config = {
   cache: {
     type: "filesystem",
     memoryCacheUnaffected: true,
@@ -14,7 +14,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".json", ".ts", ".tsx"],
     alias: {
-      "@": path.resolve(process.cwd(), "./src/"),
+      "@": path.resolve(process.cwd(), "./example/"),
       "@@": process.cwd(),
     }
   },
@@ -26,6 +26,6 @@ module.exports = {
     rules: [].concat(program_loader)
   },
   plugins: [
-    new WebpackBar({ name: "编译库文件" })
+    new WebpackBar({ name: "编译服务端" })
   ]
 };

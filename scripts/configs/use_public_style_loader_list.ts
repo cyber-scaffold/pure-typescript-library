@@ -1,4 +1,5 @@
-module.exports = [{
+
+export const use_public_style_loader_list = [{
   loader: "style-loader"
 }, {
   loader: "css-loader",

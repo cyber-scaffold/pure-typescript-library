@@ -1,6 +1,6 @@
-const path = require("path");
+import path from "path";
 
-module.exports = [{
+export const program_loader = [{
   test: /\.(ts|tsx)$/,
   exclude: /(node_modules)/,
   use: [{

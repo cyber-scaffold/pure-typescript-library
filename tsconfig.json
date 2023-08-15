@@ -24,7 +24,7 @@
       "@/*": [
         "./example/*"
       ],
-      "float-controller": [
+      "library": [
         "./src/"
       ]
     }

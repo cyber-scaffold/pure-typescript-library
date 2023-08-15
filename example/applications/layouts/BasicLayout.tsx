@@ -4,8 +4,8 @@ import { Space, Button } from "antd";
 import React, { useMemo } from "react";
 
 import { FloatController } from "library";
-import { TestDialog } from "@/pages/TestDialog";
-import { TestDrawer } from "@/pages/TestDrawer";
+import { TestDialog } from "@/applications/pages/TestDialog";
+import { TestDrawer } from "@/applications/pages/TestDrawer";
 
 export function BasicLayout(props) {
 

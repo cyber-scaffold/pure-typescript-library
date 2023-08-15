@@ -1,10 +1,11 @@
-const path = require("path");
-const { merge } = require("webpack-merge");
-const nodeExternals = require("webpack-node-externals");
+import path from "path";
+import { merge } from "webpack-merge";
+import nodeExternals from "webpack-node-externals";
 
-const basic_server_config = require("./webpack.library.basic");
+import { basic_library_config } from "./webpack.library.basic";
 
-module.exports = merge(basic_server_config, {
+export const development_library_config = merge(basic_library_config, {
+  //@ts-ignore
   mode: "development",
   output: {
     clean: true,
