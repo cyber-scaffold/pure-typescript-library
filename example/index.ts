@@ -20,6 +20,6 @@ app.use(express.static(path.resolve(path.dirname(__filename), "./applications/")
 
 
 const server = app.listen(5280, () => {
-  const { port } = server.address();
+  const { port }: any = server.address();
   console.log("address", `http://localhost:${port}/`, server.address());
 });
