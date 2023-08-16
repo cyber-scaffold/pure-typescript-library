@@ -5,7 +5,7 @@ import { EventEmitter } from "events";
 export class FloatController {
 
   /** 基于发布订阅模式的事件总线 **/
-  protected event = new EventEmitter();
+  private event = new EventEmitter();
 
   /** 注册dialog弹框的打开句柄(一般在组件内部注册) **/
   public registryOpenHandler(callback): void {
