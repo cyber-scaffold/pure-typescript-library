@@ -1,6 +1,5 @@
 import { EventEmitter } from "events";
 
-
 /** 基础控制手柄的抽象类 **/
 export class FloatController {
 
@@ -122,5 +121,4 @@ export class FloatController {
       this.event.emit("cancel_dialog", params);
     });
   };
-
 };
