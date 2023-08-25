@@ -4,7 +4,8 @@
   "description": "基于typescript编译的库脚手架",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "tsc && tsc-alias",
+    "dev": "libtest node ./example/index.ts",
+    "build": "tsc --project tsconfig.build.json && tsc-alias",
     "prepublishOnly": "npm run build"
   },
   "publishConfig": {

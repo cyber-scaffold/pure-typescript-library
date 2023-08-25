@@ -1,8 +1,4 @@
 {
-  "exclude": [
-    "./dist/",
-    "./example/"
-  ],
   "compilerOptions": {
     "jsx": "react",
     "emitDecoratorMetadata": true,
