@@ -1,4 +1,8 @@
-/.libtest/
+/logs/
+/dist/
+/types/
+/assest/
 /node_modules/
-**/.DS_Store
+**/.DS_Store/**
+.npmrc
 package-lock.json
