@@ -3,7 +3,7 @@ import "reflect-metadata";
 export class Foo {
   @Reflect.metadata("hello", "world")
   public say(a: number): string {
-    return 'foo';
+    return "foo";
   };
 };
 
