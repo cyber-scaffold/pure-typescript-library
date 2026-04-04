@@ -1,14 +1,3 @@
-import "reflect-metadata";
+import { fromPairs } from "lodash";
 
-export class Foo {
-  @Reflect.metadata("hello", "world")
-  public say(a: number): string {
-    return "foo";
-  };
-};
-
-const paramtypes = Reflect.getMetadata("design:paramtypes", Foo.prototype, "say");
-console.log("paramtypes", paramtypes);
-
-const returntype = Reflect.getMetadata("design:returntype", Foo.prototype, "say");
-console.log("returntype", returntype);
+console.log(fromPairs([["param_1", 1], ["param_2", 2]]));
