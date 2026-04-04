@@ -12,4 +12,3 @@ console.log("paramtypes", paramtypes);
 
 const returntype = Reflect.getMetadata("design:returntype", Foo.prototype, "say");
 console.log("returntype", returntype);
-
