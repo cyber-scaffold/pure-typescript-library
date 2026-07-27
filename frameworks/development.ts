@@ -9,15 +9,23 @@ import { GenerateDeclaration } from "@/frameworks/actions/GenerateDeclaration";
 import { TransformSourceCode } from "@/frameworks/actions/TransformSourceCode";
 
 async function bootstrap() {
-  const $TransformSourceCode = IOCContainer.get(TransformSourceCode);
-  await $TransformSourceCode.initialize();
-  await $TransformSourceCode.processEverySourceCodeFile();
-  await $TransformSourceCode.complateAndGenerate();
 
-  const $GenerateDeclaration = IOCContainer.get(GenerateDeclaration);
-  await $GenerateDeclaration.initialize();
-  await $GenerateDeclaration.processEverySourceCodeFile();
-  await $GenerateDeclaration.complateAndGenerate();
+  async function TransformTask() {
+    const $TransformSourceCode = IOCContainer.get(TransformSourceCode);
+    await $TransformSourceCode.initialize();
+    await $TransformSourceCode.processEverySourceCodeFile();
+    await $TransformSourceCode.complateAndGenerate();
+  };
+
+  async function DeclarationTask() {
+    const $GenerateDeclaration = IOCContainer.get(GenerateDeclaration);
+    await $GenerateDeclaration.initialize();
+    await $GenerateDeclaration.processEverySourceCodeFile();
+    await $GenerateDeclaration.complateAndGenerate();
+  };
+
+  await Promise.all([TransformTask(), DeclarationTask()]);
+
 };
 
 setImmediate(async () => {

@@ -54,7 +54,7 @@ export class EngineeringFeatureSupport {
    * **/
   public additionRuntimeESModuleSupport(everySourceFile: SourceFile) {
     const sourceCodeFileFullPath = everySourceFile.getFilePath();
-    const indexSourceCodeFileFullPath = path.resolve(process.cwd(), "./src/index.ts");
+    const indexSourceCodeFileFullPath = path.resolve(process.cwd(), "./main/index.ts");
     if (sourceCodeFileFullPath === indexSourceCodeFileFullPath) {
       // 找到真正的第一个语句在第一个语句后门进行esbuild-register的polyfill引入
       const statements = everySourceFile.getStatements();
